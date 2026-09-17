@@ -266,6 +266,7 @@ button { font: inherit; }
   border: 1px solid var(--border);
   border-radius: 10px;
 }
+.project-card + .project-card { margin-top: 22px; }
 .project-card > * { min-width: 0; }
 .project-visual {
   min-height: 330px;
@@ -308,6 +309,20 @@ button { font: inherit; }
 .reader-preview strong { display: block; margin-bottom: 28px; font-family: Georgia, serif; font-size: 25px; line-height: 1.2; }
 .reader-preview i { display: block; width: 100%; height: 5px; margin-top: 10px; background: #484a42; border-radius: 3px; }
 .reader-preview i.short { width: 62%; }
+
+.ranking-visual {
+  display: flex;
+  align-items: center;
+  padding: 0;
+  background: #0b110e;
+}
+.ranking-visual img {
+  width: 100%;
+  height: 100%;
+  min-height: 330px;
+  object-fit: cover;
+  object-position: top center;
+}
 
 .project-content { display: flex; flex-direction: column; justify-content: center; padding: 38px; }
 .project-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--muted); font-size: 11px; }
