@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#121411">
+  <meta name="description" content="A small corner of the internet by Đức Vũ — projects, notes, and things currently being built.">
+  <meta property="og:title" content="Đức Vũ — nducvu.men">
+  <meta property="og:description" content="Projects, notes, and things currently being built.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://nducvu.men/">
+  <link rel="canonical" href="https://nducvu.men/">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <script src="theme-init.js"></script>
+  <link rel="stylesheet" href="styles.css">
+  <title>Đức Vũ — nducvu.men</title>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <div class="page-shell">
+    <header class="site-header">
+      <a class="site-brand" href="/" aria-label="nducvu.men home page">
+        <span class="brand-glyph" aria-hidden="true">DV</span>
+        <span>nducvu.men</span>
+      </a>
+
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+        <button id="themeToggle" class="theme-toggle" type="button" aria-label="Toggle light/dark theme" title="Toggle light/dark theme">
+          <svg class="moon-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4 8.5 8.5 0 1 0 20 15.2Z"/></svg>
+          <svg class="sun-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2M12 20v2M4.93 4.93l1.42 1.42M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.42-1.42M17.66 6.34l1.41-1.41"/></svg>
+        </button>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-intro">
+          <div class="status-line"><span class="status-dot" aria-hidden="true"></span> ONLINE · HO CHI MINH CITY <span id="localTime" aria-label="Current time in Ho Chi Minh City">--:--</span></div>
+          <h1 id="hero-title">Hello, I’m <span>Đức Vũ.</span></h1>
+          <p class="hero-copy">This is a small corner of the internet for projects, notes, and things I’m building.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#projects">View projects <span aria-hidden="true">↘</span></a>
+          </div>
+        </div>
+
+        <div class="hero-mark" aria-hidden="true">
+          <div class="orbit orbit-one"></div>
+          <div class="orbit orbit-two"></div>
+          <div class="monogram">DV</div>
+          <span class="mark-label">EST. 2026</span>
+        </div>
+      </section>
+
+      <section id="projects" class="section" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <span class="section-index">01</span>
+          <h2 id="projects-title">Projects in progress</h2>
+        </div>
+
+        <article class="project-card">
+          <a class="project-visual" href="https://mirror.nducvu.men" aria-label="Open Mirror Reader">
+            <div class="browser-chrome">
+              <span></span><span></span><span></span>
+              <div class="browser-address">mirror.nducvu.men</div>
+            </div>
+            <div class="reader-preview">
+              <span class="preview-kicker">MIRROR READER</span>
+              <strong>A calm reading space<br>that stays focused.</strong>
+              <i></i><i></i><i></i><i class="short"></i>
+            </div>
+          </a>
+
+          <div class="project-content">
+            <div class="project-meta">
+              <span class="badge"><span class="status-dot" aria-hidden="true"></span> Active</span>
+              <span>2026</span>
+            </div>
+            <h3><a href="https://mirror.nducvu.men">Mirror Reader <span aria-hidden="true">↗</span></a></h3>
+            <p>A personal reading app focused on content, comfort, and a distraction-free experience across devices.</p>
+            <ul class="tag-list" aria-label="Technology stack">
+              <li>FastAPI</li>
+              <li>Playwright</li>
+              <li>Nginx</li>
+              <li>Cloudflare</li>
+            </ul>
+          </div>
+        </article>
+      </section>
+
+      <section id="about" class="section about-section" aria-labelledby="about-title">
+        <div class="section-heading">
+          <span class="section-index">02</span>
+          <h2 id="about-title">About this page</h2>
+        </div>
+
+        <div class="about-grid">
+          <p class="about-lead">A small personal website that values clarity, speed, and tools that can run themselves.</p>
+          <dl class="fact-list">
+            <div><dt>Focus</dt><dd>Useful web tools</dd></div>
+            <div><dt>Approach</dt><dd>Simple, direct, easy to maintain</dd></div>
+            <div><dt>Now</dt><dd>Polishing Mirror Reader</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact-section" aria-labelledby="contact-title">
+        <div class="section-heading">
+          <span class="section-index">03</span>
+          <h2 id="contact-title">Get in touch</h2>
+        </div>
+        <div class="contact-row">
+          <p>Have an idea or just want to say hello?</p>
+          <a class="button button-outline" href="mailto:hello@nducvu.men">hello@nducvu.men <span aria-hidden="true">↗</span></a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <span>© <span id="currentYear">2026</span> Đức Vũ</span>
+      <a href="#main">Back to top ↑</a>
+    </footer>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
