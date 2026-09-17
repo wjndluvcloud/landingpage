@@ -1,22 +1,22 @@
 # nducvu.men landing page
 
-Landing page tĩnh cho `nducvu.men`, dùng HTML, CSS và JavaScript thuần. Giao diện tham khảo tinh thần tối giản của `nkh.do`: cột nội dung gọn, font monospace, đường phân cách, light/dark mode và danh sách dự án. Nội dung, màu sắc và component được thiết kế riêng.
+A static landing page for `nducvu.men`, built with plain HTML, CSS, and JavaScript. Its interface takes inspiration from the minimalist spirit of `nkh.do`: a compact content column, monospace type, dividers, light/dark mode, and a project list. The content, colors, and components are independently designed.
 
-## Chỉnh nội dung
+## Edit content
 
-- Thông tin, lời giới thiệu và liên kết: `site/index.html`.
-- Màu sắc, khoảng cách và responsive: `site/styles.css`.
-- Khởi tạo theme trước khi trang hiển thị: `site/theme-init.js`.
-- Nút đổi theme, năm hiện tại và đồng hồ Sài Gòn: `site/app.js`.
-- Email `hello@nducvu.men` cần được cấu hình bằng Cloudflare Email Routing hoặc đổi thành địa chỉ đang dùng.
+- Information, introduction, and links: `site/index.html`.
+- Colors, spacing, and responsive styles: `site/styles.css`.
+- Theme initialization before the page is displayed: `site/theme-init.js`.
+- Theme toggle, current year, and Ho Chi Minh City clock: `site/app.js`.
+- Configure `hello@nducvu.men` with Cloudflare Email Routing, or replace it with the email address you use.
 
-## Xem thử trên máy tính
+## Preview locally
 
-Có thể mở trực tiếp `site/index.html` bằng trình duyệt. Khi chạy qua web server, đứng trong thư mục `site` và dùng một static server bất kỳ.
+You can open `site/index.html` directly in a browser. To serve it with a web server, change to the `site` directory and use any static server.
 
-## Triển khai lên VPS
+## Deploy to a VPS
 
-Tại PowerShell trên Windows:
+In PowerShell on Windows:
 
 ```powershell
 cd D:\Project\landingpage
@@ -25,7 +25,7 @@ scp .\landingpage.tar.gz truyen-vps:/root/
 scp .\deploy\nginx.conf truyen-vps:/root/landingpage-nginx.conf
 ```
 
-Trên VPS:
+On the VPS:
 
 ```bash
 mkdir -p /var/www/landingpage
@@ -41,13 +41,13 @@ systemctl reload nginx
 curl -I http://127.0.0.1:8081/
 ```
 
-Trong Cloudflare Tunnel đang chạy, thêm **Published application**:
+In the active Cloudflare Tunnel, add a **Published application**:
 
-| Trường | Giá trị |
+| Field | Value |
 |---|---|
-| Subdomain | Để trống |
+| Subdomain | Leave blank |
 | Domain | `nducvu.men` |
-| Path | Để trống |
+| Path | Leave blank |
 | Service URL | `http://localhost:8081` |
 
-Nếu root domain đã có bản ghi DNS `A`, `AAAA` hoặc `CNAME`, xóa bản ghi xung đột trước khi thêm route. Có thể tạo thêm route `www.nducvu.men` tới cùng service hoặc tạo Redirect Rule từ `www` về domain gốc.
+If the root domain already has an `A`, `AAAA`, or `CNAME` DNS record, remove the conflicting record before adding the route. You can add a route for `www.nducvu.men` to the same service or create a Redirect Rule from `www` to the root domain.
