@@ -48,6 +48,6 @@ In the active Cloudflare Tunnel, add a **Published application**:
 | Subdomain | Leave blank |
 | Domain | `nducvu.men` |
 | Path | Leave blank |
-| Service URL | `http://localhost:8081` |
+| Service URL | `http://localhost:8080` |
 
 If the root domain already has an `A`, `AAAA`, or `CNAME` DNS record, remove the conflicting record before adding the route. You can add a route for `www.nducvu.men` to the same service or create a Redirect Rule from `www` to the root domain.
