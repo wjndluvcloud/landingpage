@@ -14,7 +14,18 @@ A static landing page for `nducvu.men`, built with plain HTML, CSS, and JavaScri
 
 You can open `site/index.html` directly in a browser. To serve it with a web server, change to the `site` directory and use any static server.
 
-## Deploy to a VPS
+## Deploy with GitHub Pages
+
+The repository is published from `site/` by [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) whenever a commit is pushed to `master`. No build step is needed.
+
+1. In the GitHub repository, open **Settings → Pages** and set **Build and deployment → Source** to **GitHub Actions**.
+2. Push changes to `master` and check the **Actions** tab for the deployment result.
+3. Before connecting a custom domain, preview the site at `https://wjndluvcloud.github.io/landingpage/`.
+4. To use `nducvu.men`, add it under **Settings → Pages → Custom domain** before changing DNS. Then replace the root-domain Cloudflare Tunnel route and its DNS record with the GitHub Pages apex `A` records documented by GitHub. Keep the `mirror` and `ranking` subdomains as they are. Once DNS and the certificate are ready, turn on **Enforce HTTPS** in Pages settings.
+
+The files in `deploy/` are for the existing VPS deployment and are not used by GitHub Pages.
+
+## Existing VPS deployment
 
 In PowerShell on Windows:
 
@@ -38,7 +49,7 @@ cp /root/landingpage-nginx.conf /etc/nginx/sites-available/landingpage
 ln -sfn /etc/nginx/sites-available/landingpage /etc/nginx/sites-enabled/landingpage
 nginx -t
 systemctl reload nginx
-curl -I http://127.0.0.1:8081/
+curl -I http://127.0.0.1:8080/
 ```
 
 In the active Cloudflare Tunnel, add a **Published application**:
