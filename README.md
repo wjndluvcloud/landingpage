@@ -20,6 +20,6 @@ The repository publishes `site/` through [`.github/workflows/deploy.yml`](.githu
 
 GitHub Pages uses **GitHub Actions** as its publishing source and `nducvu.men` as its custom domain. Cloudflare DNS has a **DNS only** `CNAME` record named `@` targeting `wjndluvcloud.github.io`; Cloudflare flattens this record at the domain apex. The other subdomains use their own DNS records.
 
-To publish a change, push it to `master` and check the repository's **Actions** tab. After GitHub issues the domain's certificate, enable **Enforce HTTPS** in **Settings > Pages**.
+To publish a change, push it to `master` and check the repository's **Actions** tab. **Enforce HTTPS** is enabled in **Settings > Pages**.
 
 The old VPS configuration remains in `deploy/` for reference; GitHub Pages does not use its Nginx settings or security headers.
