@@ -16,49 +16,10 @@ You can open `site/index.html` directly in a browser. To serve it with a web ser
 
 ## Deploy with GitHub Pages
 
-The repository is published from `site/` by [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) whenever a commit is pushed to `master`. No build step is needed.
+The repository publishes `site/` through [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) whenever a commit is pushed to `master`. No build step is needed.
 
-1. In the GitHub repository, open **Settings → Pages** and set **Build and deployment → Source** to **GitHub Actions**.
-2. Push changes to `master` and check the **Actions** tab for the deployment result.
-3. Before connecting a custom domain, preview the site at `https://wjndluvcloud.github.io/landingpage/`.
-4. To use `nducvu.men`, add it under **Settings → Pages → Custom domain** before changing DNS. Then replace the root-domain Cloudflare Tunnel route and its DNS record with the GitHub Pages apex `A` records documented by GitHub. Keep the `mirror` and `ranking` subdomains as they are. Once DNS and the certificate are ready, turn on **Enforce HTTPS** in Pages settings.
+GitHub Pages uses **GitHub Actions** as its publishing source and `nducvu.men` as its custom domain. Cloudflare DNS has a **DNS only** `CNAME` record named `@` targeting `wjndluvcloud.github.io`; Cloudflare flattens this record at the domain apex. The other subdomains use their own DNS records.
 
-The files in `deploy/` are for the existing VPS deployment and are not used by GitHub Pages.
+To publish a change, push it to `master` and check the repository's **Actions** tab. After GitHub issues the domain's certificate, enable **Enforce HTTPS** in **Settings > Pages**.
 
-## Existing VPS deployment
-
-In PowerShell on Windows:
-
-```powershell
-cd D:\Project\landingpage
-tar -czf landingpage.tar.gz -C .\site .
-scp .\landingpage.tar.gz truyen-vps:/root/
-scp .\deploy\nginx.conf truyen-vps:/root/landingpage-nginx.conf
-```
-
-On the VPS:
-
-```bash
-mkdir -p /var/www/landingpage
-tar -xzf /root/landingpage.tar.gz -C /var/www/landingpage
-chown -R www-data:www-data /var/www/landingpage
-find /var/www/landingpage -type d -exec chmod 755 {} \;
-find /var/www/landingpage -type f -exec chmod 644 {} \;
-
-cp /root/landingpage-nginx.conf /etc/nginx/sites-available/landingpage
-ln -sfn /etc/nginx/sites-available/landingpage /etc/nginx/sites-enabled/landingpage
-nginx -t
-systemctl reload nginx
-curl -I http://127.0.0.1:8080/
-```
-
-In the active Cloudflare Tunnel, add a **Published application**:
-
-| Field | Value |
-|---|---|
-| Subdomain | Leave blank |
-| Domain | `nducvu.men` |
-| Path | Leave blank |
-| Service URL | `http://localhost:8080` |
-
-If the root domain already has an `A`, `AAAA`, or `CNAME` DNS record, remove the conflicting record before adding the route. You can add a route for `www.nducvu.men` to the same service or create a Redirect Rule from `www` to the root domain.
+The old VPS configuration remains in `deploy/` for reference; GitHub Pages does not use its Nginx settings or security headers.
